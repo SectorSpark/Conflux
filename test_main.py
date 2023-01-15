@@ -27,4 +27,4 @@ def test_check_size_big():
 
 def test_load_image():
   with pytest.raises(ValueError):
-    load_image('https://a4format.ru/pdf_files_bio2/4b3e1cf2.pdf')
+    m.load_image('https://a4format.ru/pdf_files_bio2/4b3e1cf2.pdf')
