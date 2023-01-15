@@ -15,10 +15,8 @@ Web-приложение для передачи стиля одного изо�
 
 - [Exploring the structure of a real-time, arbitrary neural artistic stylization network](https://arxiv.org/abs/1705.06830).
 
-[Ссылка на развернутое приложение](https://yananozhnina-pi-project-clf-main-r0b0ej.streamlit.app/). - тут должна быть ссылка
+[Ссылка на развернутое приложение](https://yananozhnina-pi-project-clf-main-r0b0ej.streamlit.app/). 
 
 ## Пример работы приложения
-![Пример работы приложения](https://github.com/) - можно записать гифку
-
 ![Снимок экрана 2023-01-15 215609](https://user-images.githubusercontent.com/122021948/212554841-12d1106f-cb1e-4e71-a449-838384d27df4.png)
 ![Снимок экрана 2023-01-15 215736](https://user-images.githubusercontent.com/122021948/212554846-d5710cd9-6fd8-4b59-b8f5-2f5c649df7a4.png)
