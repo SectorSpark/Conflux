@@ -14,19 +14,6 @@ def check_size(shape):
   else:
     st.write('Error. Size must be > 256 and < 4000.')
     return False
-  
-# Проверка изображения на наличие прозрачных пикселей 
-def check_transparency(image):
-  pixels = image.convert('RGBA')
-  width, height = image.size
-  for i in range(width):
-      for j in range(height):
-          r,g,b,a = pixels.getpixel((i,j))
-          if a > 0:
-            return False
-            st.write('Error. Image must not contain transparent pixels')
-          else:
-            return True
       
 def crop_center(image):
   shape = image.shape
