@@ -7,7 +7,6 @@ import tensorflow as tf
 import tensorflow_hub as hub
 from PIL import Image
 
-# Проверка размера изображения: для обрезки должно быть не менее 256, для быстрой обработки также желательно ограничить максимальный размер 
 def check_size(shape):
   if (shape[1] >= 256) and (shape[2] >= 256) and (shape[1] < 4000) and (shape[2] < 4000):
     return True
