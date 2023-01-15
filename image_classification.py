@@ -12,7 +12,7 @@ def check_size(shape):
   if (shape[1] >= 256) and (shape[2] >= 256) and (shape[1] < 4000) and (shape[2] < 4000):
     return True
   else:
-    st.write('Error. Size must be > 256 and < 4000.')
+    st.write('Что-то пошло не так. Стороны изображения должны быть больше 256 и меньше 4000.')
     return False
       
 def crop_center(image):
@@ -32,6 +32,7 @@ def preprocess_image(img, resize):
     return img
 
 def load_image(imageLabel):
+  try:
     uploaded_file = st.file_uploader(label=imageLabel)
     if uploaded_file is not None:
         image_data = uploaded_file.getvalue()
@@ -39,6 +40,8 @@ def load_image(imageLabel):
         return image_data
     else:
         return None
+  except:
+     st.write('Что-то пошло не так. Проверьте загружаемый файл.')
 
 st.title('Стилизация изображений')
 col1, col2 = st.columns(2)
