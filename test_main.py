@@ -4,7 +4,7 @@ import pytest
 import os
 import numpy as np
 
-def load_image(image_url):
+def load_image_tf(image_url):
   # Cache image file locally.
   image_path = tf.keras.utils.get_file(os.path.basename(image_url)[-128:], image_url)
   # Load and convert to float32 numpy array, add batch dimension, and normalize to range [0, 1].
@@ -15,12 +15,16 @@ def load_image(image_url):
     
 #Проверка размера изображения. Не меньше 256х256
 def test_check_size_small():
-    image = load_image('https://townandcountryremovals.com/wp-content/uploads/2013/10/firefox-logo-200x200.png')
+    image = load_image_tf('https://townandcountryremovals.com/wp-content/uploads/2013/10/firefox-logo-200x200.png')
     shape = image.shape
     assert m.check_size(shape) == False
     
 #Проверка размера изображения. Не больше 4000х4000
 def test_check_size_big():
-    image = load_image('https://s1.1zoom.ru/big3/416/Earth_Black_background_548690_4000x4000.jpg')
+    image = load_image_tf('https://s1.1zoom.ru/big3/416/Earth_Black_background_548690_4000x4000.jpg')
     shape = image.shape
     assert m.check_size(shape) == False
+
+def test_load_image():
+  with pytest.raises(ValueError):
+    load_image('https://a4format.ru/pdf_files_bio2/4b3e1cf2.pdf')
