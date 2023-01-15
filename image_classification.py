@@ -6,6 +6,7 @@ import os
 import tensorflow as tf
 import tensorflow_hub as hub
 from PIL import Image
+import time
 
 hub_handle = 'https://tfhub.dev/google/magenta/arbitrary-image-stylization-v1-256/2' #Теперь загрузка приложения должны быть до обработки фото
 hub_module = hub.load(hub_handle) 
@@ -54,11 +55,14 @@ with col2:
 result = st.button('Применить стиль второго изображения к первому')
 
 if result:
-    content_image = preprocess_image(img,(1600,1600)) # Увеличена скоростть обработки за счет понижения колличества пикселей. Изменение разрешения не повлияло на обрезку фото
+    content_image = preprocess_image(img,(1024,1024)) # Увеличена скоростть обработки за счет понижения колличества пикселей. Изменение разрешения не повлияло на обрезку фото
     style_image = preprocess_image(img2,(256,256))
     style_image = tf.nn.avg_pool(style_image, ksize=[3,3], strides=[1,1], padding='SAME')
     st.write('**Результат:**')
-    
+    with st.spinner("Идёт обработка..."): #Добалена шкала загрузки
+         time.sleep(5)
+    st.success('Успешно!')
     outputs = hub_module(tf.constant(content_image), tf.constant(style_image))
     stylized_image = np.squeeze(outputs[0])
+  
     st.image(stylized_image)
