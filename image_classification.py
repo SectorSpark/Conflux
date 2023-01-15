@@ -14,7 +14,8 @@ def check_size(shape):
   else:
     st.write('Error. Size must be > 256 and < 4000.')
     return False
-#  
+  
+# Проверка изображения на наличие прозрачных пикселей 
 def check_transparency(image):
   pixels = image.convert('RGBA')
   width, height = image.size
@@ -26,7 +27,7 @@ def check_transparency(image):
             st.write('Error. Image must not contain transparent pixels')
           else:
             return True
-
+      
 def crop_center(image):
   shape = image.shape
   if check_size(shape) == True:
@@ -36,7 +37,7 @@ def crop_center(image):
     image = tf.image.crop_to_bounding_box(
         image, offset_y, offset_x, new_shape, new_shape)
     return image
-
+ 
 def preprocess_image(img, resize):
     img = tf.io.decode_image(img, channels=3, dtype=tf.float32)[tf.newaxis, ...]
     img = crop_center(img)
@@ -51,7 +52,6 @@ def load_image(imageLabel):
         return image_data
     else:
         return None
-
 
 st.title('Стилизация изображений')
 col1, col2 = st.columns(2)
