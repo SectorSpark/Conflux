@@ -1,4 +1,4 @@
-import clf_main as m
+import image_classification.py as m
 import tensorflow as tf
 import pytest
 import os
