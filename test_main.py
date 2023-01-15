@@ -26,5 +26,5 @@ def test_check_size_big():
     assert m.check_size(shape) == False
 
 def test_load_image():
-  with pytest.raises(ValueError):
+  with pytest.raises(RuntimeError):
     m.load_image('https://a4format.ru/pdf_files_bio2/4b3e1cf2.pdf')
