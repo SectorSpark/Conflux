@@ -8,7 +8,7 @@ import tensorflow_hub as hub
 from PIL import Image
 import time
 
-hub_handle = 'https://tfhub.dev/google/magenta/arbitrary-image-stylization-v1-256/2' #Теперь загрузка приложения должны быть до обработки фото
+hub_handle = 'https://tfhub.dev/google/magenta/arbitrary-image-stylization-v1-256/2' #Теперь загрузка приложения должна быть до обработки фото
 hub_module = hub.load(hub_handle) 
   
 def check_size(shape):
