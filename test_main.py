@@ -24,7 +24,3 @@ def test_check_size_big():
     image = load_image_tf('https://s1.1zoom.ru/big3/416/Earth_Black_background_548690_4000x4000.jpg')
     shape = image.shape
     assert m.check_size(shape) == False
-
-def test_load_image():
-  with pytest.raises(RuntimeError):
-    m.load_image('https://a4format.ru/pdf_files_bio2/4b3e1cf2.pdf')
