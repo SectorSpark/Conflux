@@ -60,7 +60,7 @@ if result:
     style_image = tf.nn.avg_pool(style_image, ksize=[3,3], strides=[1,1], padding='SAME')
     st.write('**Результат:**')
     with st.spinner("Идёт обработка..."): #Добалена шкала загрузки
-         time.sleep(5)
+         time.sleep(3)
     st.success('Успешно!')
     outputs = hub_module(tf.constant(content_image), tf.constant(style_image))
     stylized_image = np.squeeze(outputs[0])
