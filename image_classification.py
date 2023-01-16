@@ -51,11 +51,12 @@ col1, col2 = st.columns(2)
 with col1:
   img = load_image('Первое изображение')    
 with col2:
-  img2 = load_image('Второе изображение') 
+  img2 = load_image('Второе изображение')
+reso = st.slider('Разрешение выходного изображения', 1600, 3999, 256)
 result = st.button('Применить стиль второго изображения к первому')
 
 if result:
-    content_image = preprocess_image(img,(1024,1024)) # Увеличена скоростть обработки за счет понижения колличества пикселей. Изменение разрешения не повлияло на обрезку фото
+    content_image = preprocess_image(img,(reso,reso)) # Увеличена скоростть обработки за счет понижения колличества пикселей. Изменение разрешения не повлияло на обрезку фото
     style_image = preprocess_image(img2,(256,256))
     style_image = tf.nn.avg_pool(style_image, ksize=[3,3], strides=[1,1], padding='SAME')
     st.write('**Результат:**')
