@@ -16,7 +16,7 @@ Web-приложение для передачи стиля одного изо�
 - [Exploring the structure of a real-time, arbitrary neural artistic stylization network](https://arxiv.org/abs/1705.06830).
 
 ## Приложение на Streamlit
-[Ссылка на развернутое приложение](https://yananozhnina-pi-project-clf-main-r0b0ej.streamlit.app/). 
+[Ссылка на развернутое приложение](https://sectorspark-conflux-image-classification-pzq52v.streamlit.app/). 
 
 ## Пример работы приложения
 
